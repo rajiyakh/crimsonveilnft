@@ -2595,28 +2595,69 @@ function hideStatus() {
   document.getElementById('status-msg').className = 'status-msg';
 }
 
-// Load stats from contract
+// Load stats — tries Etherscan API first, then multiple RPCs
 async function loadStats() {
-  try {
-    const rpcProvider = new ethers.JsonRpcProvider('https://cloudflare-eth.com');
-    const readContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, rpcProvider);
-    const [minted, remaining] = await Promise.all([
-      readContract.totalMinted(),
-      readContract.remainingSupply()
-    ]);
-    const mintedNum = Number(minted);
-    const totalNum = mintedNum + Number(remaining);
-    const pct = totalNum > 0 ? ((mintedNum / totalNum) * 100).toFixed(1) : 0;
 
-    document.getElementById('stat-minted').textContent = mintedNum.toLocaleString();
-    document.getElementById('stat-remaining').textContent = Number(remaining).toLocaleString();
-    document.getElementById('progress-pct').textContent = pct + '%';
-    setTimeout(() => {
-      document.getElementById('progress-fill').style.width = pct + '%';
-    }, 500);
+  // Method 1: Etherscan API (most reliable)
+  try {
+    // Call totalMinted() via Etherscan
+    const mintedRes = await fetch(
+      'https://api.etherscan.io/api?module=proxy&action=eth_call' +
+      '&to=' + CONTRACT_ADDRESS +
+      '&data=0x2c00e04a' + // totalMinted() selector
+      '&tag=latest'
+    );
+    const mintedJson = await mintedRes.json();
+    if (mintedJson.result && mintedJson.result !== '0x') {
+      const mintedNum = parseInt(mintedJson.result, 16);
+      const remaining = 10000 - mintedNum;
+      const pct = ((mintedNum / 10000) * 100).toFixed(1);
+      updateStats(mintedNum, remaining, pct);
+      console.log('Stats via Etherscan API | Minted:', mintedNum);
+      return;
+    }
   } catch(e) {
-    console.log('Stats load error:', e);
+    console.log('Etherscan API failed:', e.message);
   }
+
+  // Method 2: Multiple RPC fallbacks
+  const rpcs = [
+    'https://eth.llamarpc.com',
+    'https://rpc.ankr.com/eth',
+    'https://cloudflare-eth.com',
+    'https://ethereum.publicnode.com',
+    'https://1rpc.io/eth',
+    'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
+  ];
+
+  for (const rpc of rpcs) {
+    try {
+      const rpcProvider = new ethers.JsonRpcProvider(rpc);
+      const readContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, rpcProvider);
+      const [minted, remaining] = await Promise.all([
+        readContract.totalMinted(),
+        readContract.remainingSupply()
+      ]);
+      const mintedNum = Number(minted);
+      const remainingNum = Number(remaining);
+      const pct = ((mintedNum / 10000) * 100).toFixed(1);
+      updateStats(mintedNum, remainingNum, pct);
+      console.log('Stats via RPC:', rpc, '| Minted:', mintedNum);
+      return;
+    } catch(e) {
+      console.log('RPC failed:', rpc, e.message);
+    }
+  }
+  console.log('All methods failed');
+}
+
+function updateStats(minted, remaining, pct) {
+  document.getElementById('stat-minted').textContent = minted.toLocaleString();
+  document.getElementById('stat-remaining').textContent = remaining.toLocaleString();
+  document.getElementById('progress-pct').textContent = pct + '%';
+  setTimeout(() => {
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }, 500);
 }
 
 // Wallet modal
@@ -2981,7 +3022,7 @@ function showComingSoon(btn, platform) {
 
 // Init
 loadStats();
-setInterval(loadStats, 30000);
+setInterval(loadStats, 10000); // Refresh every 10 seconds for live tracking
 </script>
 </body>
 </html>
