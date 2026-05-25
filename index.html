@@ -559,12 +559,16 @@
     animation-delay: 0.9s;
   }
   .investor-label {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    font-family: 'Cinzel Decorative', serif;
+    background: linear-gradient(135deg, var(--gold-light), var(--red-bright), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 12px;
-    opacity: 0.6;
+    filter: drop-shadow(0 0 8px rgba(201,168,76,0.3));
   }
   .investor-badges {
     display: flex;
@@ -2271,14 +2275,14 @@
 
   <!-- Investor Section -->
   <div class="investor-section">
-    <div class="investor-label">Backed By</div>
+    <div class="investor-label">Inspired By</div>
     <div class="investor-badges">
       <div class="investor-badge">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
           <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#c9a84c" opacity="0.9"/>
         </svg>
         <span class="investor-name">Animoca Brands</span>
-        <span class="investor-tag">Powered by</span>
+        
       </div>
       <div class="investor-divider">✦</div>
       <div class="investor-badge investor-badge-angel">
@@ -2288,7 +2292,7 @@
           <path d="M16 6C19 5 22 7 22 10C22 12 20.5 13.5 19 14" stroke="#c0392b" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6"/>
         </svg>
         <span class="investor-name" style="background: linear-gradient(135deg, #fff, #e74c3c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Angel Investors</span>
-        <span class="investor-tag">Inspired by</span>
+        
       </div>
     </div>
   </div>
