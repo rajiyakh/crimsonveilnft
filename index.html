@@ -234,7 +234,7 @@
     color: var(--text-muted);
   }
 
-  /* Progress bar */
+  /* Progress bar with Goat */
   .progress-wrap {
     margin-bottom: 36px;
     animation: fadeUp 1s ease both;
@@ -247,23 +247,36 @@
     font-size: 12px;
     letter-spacing: 0.1em;
     color: var(--text-muted);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .progress-bar {
-    height: 4px;
-    background: rgba(192,57,43,0.15);
-    border-radius: 2px;
-    overflow: hidden;
+    height: 6px;
+    background: rgba(192,57,43,0.12);
+    border-radius: 3px;
+    position: relative;
+    overflow: visible;
   }
 
   .progress-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--red-dark), var(--red-bright));
-    border-radius: 2px;
+    border-radius: 3px;
     width: 0%;
-    transition: width 1s ease;
+    transition: width 1.5s ease;
     box-shadow: 0 0 10px var(--red-bright);
+    position: relative;
+  }
+
+  .progress-goat {
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    filter: drop-shadow(0 0 6px rgba(192,57,43,0.6));
+    transition: right 1.5s ease;
   }
 
   /* Mint section */
@@ -552,6 +565,28 @@
     color: var(--text-muted);
     margin-bottom: 12px;
     opacity: 0.6;
+  }
+  .investor-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .investor-divider {
+    color: var(--gold);
+    font-size: 10px;
+    opacity: 0.4;
+  }
+  .investor-badge-angel {
+    background: linear-gradient(135deg, rgba(192,57,43,0.08), rgba(192,57,43,0.15));
+    border-color: rgba(192,57,43,0.35);
+    box-shadow: 0 0 24px rgba(192,57,43,0.12);
+    animation: angel-glow 4s ease infinite;
+  }
+  @keyframes angel-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(192,57,43,0.12); }
+    50% { box-shadow: 0 0 36px rgba(192,57,43,0.28), 0 0 60px rgba(192,57,43,0.1); }
   }
   .investor-badge {
     display: inline-flex;
@@ -912,6 +947,205 @@
     font-family: 'Crimson Pro', serif;
   }
 
+  /* Traits & Rarity */
+  .traits-section {
+    margin-top: 24px;
+    border-top: 0.5px solid rgba(192,57,43,0.15);
+    padding-top: 20px;
+  }
+  .traits-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+  .traits-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .trait-item { display: flex; flex-direction: column; gap: 4px; }
+  .trait-name {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: 'Crimson Pro', serif;
+  }
+  .trait-bar {
+    height: 3px;
+    background: rgba(192,57,43,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .trait-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red-dark), var(--red-bright));
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(192,57,43,0.4);
+  }
+  .trait-values {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'Crimson Pro', serif;
+  }
+  .trait-rarity { color: var(--gold); opacity: 0.7; font-style: italic; }
+  .rarity-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 4px;
+  }
+  .rarity-badge {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-family: 'Crimson Pro', serif;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .rarity-badge.common    { background: rgba(138,106,101,0.15); color: #8a6a65; border: 0.5px solid rgba(138,106,101,0.3); }
+  .rarity-badge.uncommon  { background: rgba(46,204,113,0.1);   color: #2ecc71; border: 0.5px solid rgba(46,204,113,0.3); }
+  .rarity-badge.rare      { background: rgba(52,152,219,0.1);   color: #3498db; border: 0.5px solid rgba(52,152,219,0.3); }
+  .rarity-badge.epic      { background: rgba(127,119,221,0.15); color: #7F77DD; border: 0.5px solid rgba(127,119,221,0.3); }
+  .rarity-badge.legendary { background: rgba(201,168,76,0.12);  color: #c9a84c; border: 0.5px solid rgba(201,168,76,0.3); }
+
+  /* Mint Success Modal */
+  .success-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 5000;
+    align-items: center;
+    justify-content: center;
+  }
+  .success-overlay.show { display: flex; }
+  .success-modal {
+    background: #0a0202;
+    border: 1px solid rgba(192,57,43,0.4);
+    border-radius: 16px;
+    padding: 40px 32px;
+    width: 340px;
+    max-width: 90vw;
+    text-align: center;
+    position: relative;
+    animation: modal-pop 0.4s cubic-bezier(0.36,0.07,0.19,0.97) both;
+  }
+  .success-modal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+    border-radius: 16px 16px 0 0;
+  }
+  @keyframes modal-pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .success-ring {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    animation: ring-pulse 1.5s ease infinite;
+    box-shadow: 0 0 20px rgba(192,57,43,0.4), 0 0 40px rgba(192,57,43,0.2);
+  }
+  @keyframes ring-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(192,57,43,0.4), 0 0 40px rgba(192,57,43,0.2); }
+    50% { box-shadow: 0 0 40px rgba(192,57,43,0.7), 0 0 80px rgba(192,57,43,0.3); }
+  }
+  .success-mushroom {
+    font-size: 44px;
+    animation: mushroom-bounce 0.6s cubic-bezier(0.36,0.07,0.19,0.97) both;
+  }
+  @keyframes mushroom-bounce {
+    0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+    60% { transform: scale(1.3) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .success-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    background: linear-gradient(135deg, #f0d080, #e74c3c, #c9a84c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    animation: fade-up 0.5s ease 0.3s both;
+  }
+  .success-sub {
+    font-family: 'Crimson Pro', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    animation: fade-up 0.5s ease 0.5s both;
+  }
+  .success-nft-id {
+    background: rgba(192,57,43,0.08);
+    border: 1px solid rgba(192,57,43,0.25);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 11px;
+    color: var(--red-bright);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    animation: fade-up 0.5s ease 0.7s both;
+  }
+  .success-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fade-up 0.5s ease 0.9s both;
+  }
+  .success-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid rgba(192,57,43,0.3);
+    color: var(--red-bright);
+    background: rgba(192,57,43,0.08);
+    transition: all 0.2s;
+  }
+  .success-btn:hover { background: rgba(192,57,43,0.2); }
+  .success-btn-close {
+    margin-top: 16px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    animation: fade-up 0.5s ease 1.1s both;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   /* Responsive */
   @media (max-width: 500px) {
     .stats { grid-template-columns: repeat(3, 1fr); }
@@ -925,6 +1159,7 @@
 
 <canvas id="particles"></canvas>
 
+<canvas id="confetti-canvas" style="position:fixed;inset:0;pointer-events:none;z-index:9999;"></canvas>
 <div class="container">
   <header>
     <div class="eyebrow">Ethereum · 10,000 Unique NFTs</div>
@@ -1235,7 +1470,106 @@
       <span id="progress-pct">0%</span>
     </div>
     <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill"></div>
+      <div class="progress-fill" id="progress-fill">
+        <svg class="progress-goat" id="progress-goat" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="cap-grad" cx="40%" cy="35%" r="60%">
+              <stop offset="0%" stop-color="#e74c3c"/>
+              <stop offset="100%" stop-color="#7b1a14"/>
+            </radialGradient>
+            <radialGradient id="aura-grad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#2ecc71" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#2ecc71" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="glow-filter">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="sparkle-glow">
+              <feGaussianBlur stdDeviation="1.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Animated aura rings -->
+          <ellipse cx="50" cy="52" rx="44" ry="24" fill="url(#aura-grad)">
+            <animate attributeName="rx" values="40;48;40" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+          </ellipse>
+          <ellipse cx="50" cy="52" rx="34" ry="18" fill="none" stroke="#2ecc71" stroke-width="0.5" opacity="0.3">
+            <animate attributeName="rx" values="32;38;32" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2.5s" repeatCount="indefinite"/>
+          </ellipse>
+
+          <!-- Mushroom cap -->
+          <ellipse cx="50" cy="42" rx="38" ry="22" fill="url(#cap-grad)" filter="url(#glow-filter)"/>
+
+          <!-- Cap shine -->
+          <ellipse cx="36" cy="32" rx="10" ry="6" fill="white" opacity="0.15" transform="rotate(-15 36 32)"/>
+
+          <!-- Spots with shimmer -->
+          <circle cx="42" cy="40" r="5" fill="#f5c6c6" opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.4;0.8" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="60" cy="36" r="4" fill="#f5c6c6" opacity="0.8">
+            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="50" cy="50" r="3.5" fill="#f5c6c6" opacity="0.7">
+            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="30" cy="44" r="3" fill="#f5c6c6" opacity="0.6">
+            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="68" cy="46" r="3" fill="#f5c6c6" opacity="0.6">
+            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1.9s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- Stem -->
+          <rect x="38" y="62" width="24" height="36" rx="12" fill="#d4a76a"/>
+          <rect x="40" y="62" width="9" height="36" rx="6" fill="#e8c48a" opacity="0.4"/>
+
+          <!-- Floating animation wrapper -->
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/>
+            <!-- Face eyes -->
+            <circle cx="42" cy="58" r="3" fill="#222"/>
+            <circle cx="58" cy="58" r="3" fill="#222"/>
+            <circle cx="43" cy="57" r="1.2" fill="white"/>
+            <circle cx="59" cy="57" r="1.2" fill="white"/>
+            <!-- Smile -->
+            <path d="M42 63 Q50 69 58 63" stroke="#333" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          </g>
+
+          <!-- Animated sparkles -->
+          <g filter="url(#sparkle-glow)">
+            <!-- Sparkle 1 -->
+            <text x="6" y="48" font-size="13" fill="#c9a84c">✦
+              <animate attributeName="opacity" values="1;0;1" dur="1.4s" repeatCount="indefinite"/>
+              <animateTransform attributeName="transform" type="translate" values="0,0;0,-4;0,0" dur="1.4s" repeatCount="indefinite"/>
+            </text>
+            <!-- Sparkle 2 -->
+            <text x="78" y="44" font-size="9" fill="#c9a84c">✦
+              <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/>
+              <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="1.8s" repeatCount="indefinite"/>
+            </text>
+            <!-- Sparkle 3 -->
+            <text x="14" y="72" font-size="7" fill="#e74c3c">✦
+              <animate attributeName="opacity" values="0.5;0;0.5" dur="2.2s" repeatCount="indefinite"/>
+              <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="2.2s" repeatCount="indefinite"/>
+            </text>
+            <!-- Sparkle 4 -->
+            <text x="72" y="70" font-size="8" fill="#f5c6c6">✦
+              <animate attributeName="opacity" values="0;0.8;0" dur="1.6s" repeatCount="indefinite"/>
+              <animateTransform attributeName="transform" type="translate" values="0,0;0,-4;0,0" dur="1.6s" repeatCount="indefinite"/>
+            </text>
+            <!-- Sparkle 5 top -->
+            <text x="44" y="16" font-size="7" fill="#c9a84c">✦
+              <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+              <animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="2s" repeatCount="indefinite"/>
+            </text>
+          </g>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -1261,6 +1595,60 @@
       </button>
     </div>
 
+    <!-- Traits & Rarity -->
+    <div class="traits-section">
+      <div class="traits-title">✦ Traits & Rarity ✦</div>
+      <div class="traits-grid">
+        <div class="trait-item">
+          <div class="trait-name">Background</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div>
+          <div class="trait-values"><span>15 Types</span><span class="trait-rarity">Common–Rare</span></div>
+        </div>
+        <div class="trait-item">
+          <div class="trait-name">Mushroom Cap</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:93%"></div></div>
+          <div class="trait-values"><span>15 Colors</span><span class="trait-rarity">Common–Rare</span></div>
+        </div>
+        <div class="trait-item">
+          <div class="trait-name">Aura</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:87%"></div></div>
+          <div class="trait-values"><span>15 Types</span><span class="trait-rarity">Common–Legendary</span></div>
+        </div>
+        <div class="trait-item">
+          <div class="trait-name">Eyes</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div>
+          <div class="trait-values"><span>10 Types</span><span class="trait-rarity">Common–Epic</span></div>
+        </div>
+        <div class="trait-item">
+          <div class="trait-name">Accessory</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:75%"></div></div>
+          <div class="trait-values"><span>10 Types</span><span class="trait-rarity">Common–Legendary</span></div>
+        </div>
+        <div class="trait-item">
+          <div class="trait-name">Magic Power</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:70%"></div></div>
+          <div class="trait-values"><span>12 Types</span><span class="trait-rarity">Uncommon–Legendary</span></div>
+        </div>
+        <div class="trait-item">
+          <div class="trait-name">Season</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:65%"></div></div>
+          <div class="trait-values"><span>7 Types</span><span class="trait-rarity">Common–Epic</span></div>
+        </div>
+        <div class="trait-item">
+          <div class="trait-name">Age</div>
+          <div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div>
+          <div class="trait-values"><span>7 Types</span><span class="trait-rarity">Common–Timeless</span></div>
+        </div>
+      </div>
+      <div class="rarity-row">
+        <span class="rarity-badge common">Common</span>
+        <span class="rarity-badge uncommon">Uncommon</span>
+        <span class="rarity-badge rare">Rare</span>
+        <span class="rarity-badge epic">Epic</span>
+        <span class="rarity-badge legendary">Legendary</span>
+      </div>
+    </div>
+
     <div class="wallet-info" id="wallet-info"></div>
     <div class="status-msg" id="status-msg"></div>
   </div>
@@ -1275,12 +1663,24 @@
   <!-- Investor Section -->
   <div class="investor-section">
     <div class="investor-label">Backed By</div>
-    <div class="investor-badge">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
-        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#c9a84c" opacity="0.9"/>
-      </svg>
-      <span class="investor-name">Animoca Brands</span>
-      <span class="investor-tag">Investor</span>
+    <div class="investor-badges">
+      <div class="investor-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
+          <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#c9a84c" opacity="0.9"/>
+        </svg>
+        <span class="investor-name">Animoca Brands</span>
+        <span class="investor-tag">Powered by</span>
+      </div>
+      <div class="investor-divider">✦</div>
+      <div class="investor-badge investor-badge-angel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
+          <path d="M12 2C9 2 7 4 7 6.5C7 8 7.5 9.5 8.5 10.5C6 11.5 4 13.5 4 16H20C20 13.5 18 11.5 15.5 10.5C16.5 9.5 17 8 17 6.5C17 4 15 2 12 2Z" fill="#c0392b" opacity="0.8"/>
+          <path d="M8 6C5 5 2 7 2 10C2 12 3.5 13.5 5 14" stroke="#c0392b" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6"/>
+          <path d="M16 6C19 5 22 7 22 10C22 12 20.5 13.5 19 14" stroke="#c0392b" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <span class="investor-name" style="background: linear-gradient(135deg, #fff, #e74c3c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Angel Investors</span>
+        <span class="investor-tag">Inspired by</span>
+      </div>
     </div>
   </div>
 
@@ -1337,6 +1737,23 @@
     </div>
     <div class="footer-copy">© 2026 Crimsonveil the Ancient · All rights reserved</div>
   </footer>
+
+  <!-- Mint Success Modal -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-modal">
+      <div class="success-ring">
+        <div class="success-mushroom">🍄</div>
+      </div>
+      <div class="success-title">Minted Successfully!</div>
+      <div class="success-sub">Welcome to the Crimsonveil realm</div>
+      <div class="success-nft-id" id="success-nft-id">✦ Crimsonveil the Ancient ✦</div>
+      <div class="success-btns">
+        <a href="https://opensea.io/collection/crimsonveil-the-ancient-mashroom" target="_blank" class="success-btn">View on OpenSea</a>
+        <a href="https://etherscan.io/address/0x96c3c2982b50aF92Cd4FAA84b882895c8F954b2b" target="_blank" class="success-btn">Etherscan</a>
+      </div>
+      <button class="success-btn-close" onclick="closeSuccess()">✕ Close</button>
+    </div>
+  </div>
 
   <!-- Coming Soon Toast -->
   <div class="toast" id="toast"></div>
@@ -1735,6 +2152,9 @@ async function mintNFT() {
     const tx = await contract.mint(quantity, { value: totalCost });
     showStatus('Transaction submitted! Waiting for confirmation...', 'loading');
     await tx.wait();
+    const receipt = await tx.wait();
+    const tokenId = Number(receipt.logs[0]?.topics[3] || 0);
+    showSuccess(tokenId || '');
     showStatus('🎉 Successfully minted ' + quantity + ' Crimsonveil NFT' + (quantity > 1 ? 's' : '') + '!', 'success');
     loadStats();
   } catch(e) {
@@ -1765,6 +2185,85 @@ document.addEventListener('mousemove', (e) => {
   setTimeout(() => { dot.style.opacity = '0'; setTimeout(() => dot.remove(), 400); }, 80);
 });
 document.addEventListener('mouseleave', () => { mushroomCursor.style.display = 'none'; cursorVisible = false; });
+
+// Confetti system
+const confettiCanvas = document.getElementById('confetti-canvas');
+const confettiCtx = confettiCanvas.getContext('2d');
+let confettiParticles = [];
+let confettiAnimating = false;
+const confettiColors = ['#c0392b','#e74c3c','#c9a84c','#f0d080','#f5c6c6','#7F77DD','#ffffff'];
+const confettiShapes = ['✦','🍄','⚡','●'];
+
+function resizeConfetti() {
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+}
+resizeConfetti();
+window.addEventListener('resize', resizeConfetti);
+
+function createConfettiParticle() {
+  return {
+    x: Math.random() * confettiCanvas.width,
+    y: -20,
+    vx: (Math.random() - 0.5) * 5,
+    vy: Math.random() * 4 + 2,
+    size: Math.random() * 16 + 8,
+    color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+    shape: confettiShapes[Math.floor(Math.random() * confettiShapes.length)],
+    rotation: Math.random() * 360,
+    rotSpeed: (Math.random() - 0.5) * 8,
+    opacity: 1,
+    gravity: 0.1
+  };
+}
+
+function animateConfetti() {
+  if (!confettiAnimating) return;
+  confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+  confettiParticles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += p.gravity;
+    p.rotation += p.rotSpeed;
+    if (p.y > confettiCanvas.height * 0.6) p.opacity -= 0.015;
+    confettiCtx.save();
+    confettiCtx.globalAlpha = Math.max(0, p.opacity);
+    confettiCtx.translate(p.x, p.y);
+    confettiCtx.rotate(p.rotation * Math.PI / 180);
+    confettiCtx.font = p.size + 'px serif';
+    confettiCtx.fillStyle = p.color;
+    confettiCtx.textAlign = 'center';
+    confettiCtx.textBaseline = 'middle';
+    confettiCtx.fillText(p.shape, 0, 0);
+    confettiCtx.restore();
+  });
+  confettiParticles = confettiParticles.filter(p => p.opacity > 0 && p.y < confettiCanvas.height + 30);
+  requestAnimationFrame(animateConfetti);
+}
+
+function burstConfetti() {
+  confettiAnimating = true;
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => {
+      for (let j = 0; j < 10; j++) confettiParticles.push(createConfettiParticle());
+    }, i * 150);
+  }
+  setTimeout(() => {
+    confettiAnimating = false;
+    confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+  }, 5000);
+}
+
+function showSuccess(tokenId) {
+  const el = document.getElementById('success-nft-id');
+  if (tokenId) el.textContent = '✦ Crimsonveil the Ancient #' + tokenId + ' ✦';
+  document.getElementById('success-overlay').classList.add('show');
+  burstConfetti();
+}
+
+function closeSuccess() {
+  document.getElementById('success-overlay').classList.remove('show');
+}
 
 // Coming Soon toast
 let toastTimer;
