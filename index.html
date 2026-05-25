@@ -1210,6 +1210,93 @@
     animation: pulse-glow 2s ease infinite;
   }
 
+  /* Top Wallet Widget */
+  .wallet-widget {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    z-index: 100;
+    font-family: 'Crimson Pro', serif;
+  }
+  .wallet-widget-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(5,5,5,0.9);
+    border: 1px solid rgba(192,57,43,0.35);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    color: var(--text);
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+  .wallet-widget-btn:hover {
+    border-color: rgba(192,57,43,0.7);
+    box-shadow: 0 0 16px rgba(192,57,43,0.25);
+  }
+  .wallet-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c0392b;
+    animation: dot-pulse 2s ease infinite;
+    flex-shrink: 0;
+  }
+  .wallet-dot.connected { background: #2ecc71; }
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .wallet-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #0a0202;
+    border: 1px solid rgba(192,57,43,0.3);
+    border-radius: 12px;
+    padding: 8px;
+    min-width: 220px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  .wallet-dropdown.open { display: block; }
+  .wallet-dropdown::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+    border-radius: 12px 12px 0 0;
+  }
+  .wallet-dd-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .wallet-dd-item:hover { background: rgba(192,57,43,0.1); color: var(--text); }
+  .wallet-dd-item.danger:hover { background: rgba(192,57,43,0.15); color: var(--red-bright); }
+  .wallet-dd-divider { height: 0.5px; background: rgba(192,57,43,0.15); margin: 4px 0; }
+  .wallet-dd-addr {
+    padding: 10px 12px;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    word-break: break-all;
+  }
+
   /* Responsive */
   @media (max-width: 500px) {
     .stats { grid-template-columns: repeat(3, 1fr); }
@@ -1223,8 +1310,34 @@
 
 <canvas id="particles"></canvas>
 
+<!-- Top Right Wallet Widget -->
+<div class="wallet-widget" id="wallet-widget">
+  <button class="wallet-widget-btn" onclick="toggleWalletDropdown()" id="wallet-widget-btn">
+    <div class="wallet-dot" id="wallet-dot"></div>
+    <span id="wallet-widget-label">Connect Wallet</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="opacity:0.5"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="wallet-dropdown" id="wallet-dropdown">
+    <div class="wallet-dd-addr" id="wallet-dd-addr" style="display:none;"></div>
+    <div class="wallet-dd-divider" id="wallet-dd-divider" style="display:none;"></div>
+    <div class="wallet-dd-item" id="dd-connect-btn" onclick="connectWallet(); closeWalletDropdown();">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      Connect Wallet
+    </div>
+    <a class="wallet-dd-item" id="dd-etherscan-btn" href="https://etherscan.io/address/0x96c3c2982b50aF92Cd4FAA84b882895c8F954b2b" target="_blank" style="display:none;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      View on Etherscan
+    </a>
+    <div class="wallet-dd-divider" id="dd-disconnect-divider" style="display:none;"></div>
+    <div class="wallet-dd-item danger" id="dd-disconnect-btn" onclick="disconnectWallet()" style="display:none;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Disconnect
+    </div>
+  </div>
+</div>
+
 <canvas id="confetti-canvas" style="position:fixed;inset:0;pointer-events:none;z-index:9999;"></canvas>
-<div class="container">
+<div class="container" style="position:relative;">
   <header>
     <div class="eyebrow">Ethereum · 10,000 Unique NFTs</div>
     <h1>Crimsonveil<br>the Ancient</h1>
@@ -2136,6 +2249,16 @@
     </div>
 
     <div class="wallet-info" id="wallet-info"></div>
+    <div style="text-align:center; margin-top: 12px;">
+      <a href="https://etherscan.io/address/0x96c3c2982b50aF92Cd4FAA84b882895c8F954b2b" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-family:'Crimson Pro',serif; font-size:12px; color:rgba(138,106,101,0.7); text-decoration:none; letter-spacing:0.1em; transition: color 0.2s;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.6"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.252 4.56l4.284 2.473v4.947l-4.284 2.473-4.284-2.473V7.033l4.284-2.473zm5.784 3.36l4.284 2.473v4.947l-4.284 2.473-4.284-2.473v-4.947l4.284-2.473zm-11.568 0l4.284 2.473v4.947L5.964 17.813 1.68 15.34v-4.947l4.284-2.473zm5.784 7.327l4.284 2.473v4.947l-4.284 2.473-4.284-2.473v-4.947l4.284-2.473z"/></svg>
+        View Contract on Etherscan
+        <span style="display:inline-flex;align-items:center;gap:3px;background:rgba(46,204,113,0.12);border:1px solid rgba(46,204,113,0.35);border-radius:20px;padding:1px 7px;font-size:10px;color:#2ecc71;letter-spacing:0.05em;">
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#2ecc71" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Verified
+        </span>
+      </a>
+    </div>
     <div class="status-msg" id="status-msg"></div>
   </div>
 
@@ -2200,6 +2323,10 @@
       <a href="https://etherscan.io/address/0x96c3c2982b50aF92Cd4FAA84b882895c8F954b2b" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:5px"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.252 4.56l4.284 2.473v4.947l-4.284 2.473-4.284-2.473V7.033l4.284-2.473zm5.784 3.36l4.284 2.473v4.947l-4.284 2.473-4.284-2.473v-4.947l4.284-2.473zm-11.568 0l4.284 2.473v4.947L5.964 17.813 1.68 15.34v-4.947l4.284-2.473zm5.784 7.327l4.284 2.473v4.947l-4.284 2.473-4.284-2.473v-4.947l4.284-2.473z"/></svg>
         View Contract on Etherscan
+        <span style="display:inline-flex;align-items:center;gap:3px;margin-left:6px;background:rgba(46,204,113,0.12);border:1px solid rgba(46,204,113,0.35);border-radius:20px;padding:1px 7px;font-size:10px;color:#2ecc71;letter-spacing:0.05em;vertical-align:middle;">
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M2 6l3 3 5-5" stroke="#2ecc71" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Verified
+        </span>
       </a>
 
     </div>
@@ -2601,9 +2728,10 @@ async function connectWithProvider(walletProvider) {
 
     const shortAddr = walletAddress.slice(0,6) + '...' + walletAddress.slice(-4);
     document.getElementById('wallet-info').textContent = 'Connected: ' + shortAddr;
+    updateWalletWidget(walletAddress);
     document.getElementById('mint-area').innerHTML = `
       <button class="mint-btn" id="mint-btn" onclick="mintNFT()">
-        <span class="mint-btn-text">✦ Mint Now ✦</span>
+        <span class="mint-btn-text">✦ Mint Soon ✦</span>
       </button>
     `;
     hideStatus();
@@ -2651,7 +2779,7 @@ async function mintNFT() {
     showStatus(msg, 'error');
   } finally {
     btn.disabled = false;
-    btn.querySelector('.mint-btn-text').textContent = '✦ Mint Now ✦';
+    btn.querySelector('.mint-btn-text').textContent = '✦ Mint Soon ✦';
   }
 }
 
@@ -2775,6 +2903,68 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// Top wallet widget
+function toggleWalletDropdown() {
+  document.getElementById('wallet-dropdown').classList.toggle('open');
+}
+
+function closeWalletDropdown() {
+  document.getElementById('wallet-dropdown').classList.remove('open');
+}
+
+document.addEventListener('click', (e) => {
+  if (!document.getElementById('wallet-widget').contains(e.target)) {
+    closeWalletDropdown();
+  }
+});
+
+function updateWalletWidget(address) {
+  const dot = document.getElementById('wallet-dot');
+  const label = document.getElementById('wallet-widget-label');
+  const addr = document.getElementById('wallet-dd-addr');
+  const addrDivider = document.getElementById('wallet-dd-divider');
+  const connectBtn = document.getElementById('dd-connect-btn');
+  const etherscanBtn = document.getElementById('dd-etherscan-btn');
+  const disconnectBtn = document.getElementById('dd-disconnect-btn');
+  const disconnectDivider = document.getElementById('dd-disconnect-divider');
+
+  if (address) {
+    const short = address.slice(0,6) + '...' + address.slice(-4);
+    dot.className = 'wallet-dot connected';
+    label.textContent = short;
+    addr.textContent = address;
+    addr.style.display = 'block';
+    addrDivider.style.display = 'block';
+    connectBtn.style.display = 'none';
+    etherscanBtn.style.display = 'flex';
+    disconnectBtn.style.display = 'flex';
+    disconnectDivider.style.display = 'block';
+  } else {
+    dot.className = 'wallet-dot';
+    label.textContent = 'Connect Wallet';
+    addr.style.display = 'none';
+    addrDivider.style.display = 'none';
+    connectBtn.style.display = 'flex';
+    etherscanBtn.style.display = 'none';
+    disconnectBtn.style.display = 'none';
+    disconnectDivider.style.display = 'none';
+  }
+}
+
+function disconnectWallet() {
+  walletAddress = null;
+  provider = null;
+  signer = null;
+  contract = null;
+  document.getElementById('wallet-info').textContent = '';
+  document.getElementById('mint-area').innerHTML = `
+    <button class="connect-btn" id="connect-btn" onclick="connectWallet()">
+      Connect Wallet to Mint
+    </button>`;
+  updateWalletWidget(null);
+  closeWalletDropdown();
+}
 
 // Coming Soon toast
 let toastTimer;
