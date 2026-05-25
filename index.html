@@ -138,7 +138,7 @@
   /* NFT Preview */
   .nft-showcase {
     position: relative;
-    margin: 0 auto 40px;
+    margin: -20px auto 40px;
     width: 280px;
     animation: fadeIn 1s ease both;
     animation-delay: 0.3s;
@@ -817,6 +817,7 @@
 
   /* Scrolling Gallery */
   .gallery-section {
+    margin-top: -16px;
     margin-bottom: 40px;
     overflow: hidden;
     position: relative;
@@ -1146,6 +1147,69 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* Countdown */
+  .countdown-section {
+    text-align: center;
+    margin-bottom: 32px;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.45s;
+  }
+  .countdown-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: 'Crimson Pro', serif;
+    margin-bottom: 14px;
+    opacity: 0.7;
+  }
+  .countdown-boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .countdown-box {
+    background: rgba(192,57,43,0.06);
+    border: 1px solid rgba(192,57,43,0.25);
+    border-radius: 10px;
+    padding: 12px 16px;
+    min-width: 72px;
+    text-align: center;
+  }
+  .countdown-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .countdown-unit {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: 'Crimson Pro', serif;
+  }
+  .countdown-sep {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 24px;
+    color: var(--red);
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+  .countdown-done {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, #f0d080, #e74c3c, #c9a84c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse-glow 2s ease infinite;
+  }
+
   /* Responsive */
   @media (max-width: 500px) {
     .stats { grid-template-columns: repeat(3, 1fr); }
@@ -1203,248 +1267,670 @@
     <div class="gallery-fade-right"></div>
     <div class="gallery-track">
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/1.png" alt="Crimsonveil #1" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/1.png" alt="Crimsonveil #1" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/2.png" alt="Crimsonveil #2" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/2.png" alt="Crimsonveil #2" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/3.png" alt="Crimsonveil #3" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/3.png" alt="Crimsonveil #3" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/4.png" alt="Crimsonveil #4" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/4.png" alt="Crimsonveil #4" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/5.png" alt="Crimsonveil #5" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/5.png" alt="Crimsonveil #5" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/6.png" alt="Crimsonveil #6" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/6.png" alt="Crimsonveil #6" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/7.png" alt="Crimsonveil #7" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/7.png" alt="Crimsonveil #7" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/8.png" alt="Crimsonveil #8" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/8.png" alt="Crimsonveil #8" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/9.png" alt="Crimsonveil #9" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/9.png" alt="Crimsonveil #9" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/10.png" alt="Crimsonveil #10" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/10.png" alt="Crimsonveil #10" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/11.png" alt="Crimsonveil #11" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/11.png" alt="Crimsonveil #11" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/12.png" alt="Crimsonveil #12" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/12.png" alt="Crimsonveil #12" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/13.png" alt="Crimsonveil #13" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/13.png" alt="Crimsonveil #13" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/14.png" alt="Crimsonveil #14" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/14.png" alt="Crimsonveil #14" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/15.png" alt="Crimsonveil #15" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/15.png" alt="Crimsonveil #15" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/16.png" alt="Crimsonveil #16" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/16.png" alt="Crimsonveil #16" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/17.png" alt="Crimsonveil #17" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/17.png" alt="Crimsonveil #17" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/18.png" alt="Crimsonveil #18" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/18.png" alt="Crimsonveil #18" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/19.png" alt="Crimsonveil #19" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/19.png" alt="Crimsonveil #19" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/20.png" alt="Crimsonveil #20" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/20.png" alt="Crimsonveil #20" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/1.png" alt="Crimsonveil #1" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/1.png" alt="Crimsonveil #1" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/2.png" alt="Crimsonveil #2" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/2.png" alt="Crimsonveil #2" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/3.png" alt="Crimsonveil #3" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/3.png" alt="Crimsonveil #3" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/4.png" alt="Crimsonveil #4" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/4.png" alt="Crimsonveil #4" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/5.png" alt="Crimsonveil #5" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/5.png" alt="Crimsonveil #5" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/6.png" alt="Crimsonveil #6" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/6.png" alt="Crimsonveil #6" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/7.png" alt="Crimsonveil #7" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/7.png" alt="Crimsonveil #7" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/8.png" alt="Crimsonveil #8" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/8.png" alt="Crimsonveil #8" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/9.png" alt="Crimsonveil #9" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/9.png" alt="Crimsonveil #9" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/10.png" alt="Crimsonveil #10" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/10.png" alt="Crimsonveil #10" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/11.png" alt="Crimsonveil #11" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/11.png" alt="Crimsonveil #11" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/12.png" alt="Crimsonveil #12" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/12.png" alt="Crimsonveil #12" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/13.png" alt="Crimsonveil #13" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/13.png" alt="Crimsonveil #13" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/14.png" alt="Crimsonveil #14" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/14.png" alt="Crimsonveil #14" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/15.png" alt="Crimsonveil #15" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/15.png" alt="Crimsonveil #15" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/16.png" alt="Crimsonveil #16" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/16.png" alt="Crimsonveil #16" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/17.png" alt="Crimsonveil #17" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/17.png" alt="Crimsonveil #17" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/18.png" alt="Crimsonveil #18" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/18.png" alt="Crimsonveil #18" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/19.png" alt="Crimsonveil #19" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/19.png" alt="Crimsonveil #19" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/20.png" alt="Crimsonveil #20" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/20.png" alt="Crimsonveil #20" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
     </div>
     <div class="gallery-track-2">
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/21.png" alt="Crimsonveil #21" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/21.png" alt="Crimsonveil #21" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/22.png" alt="Crimsonveil #22" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/22.png" alt="Crimsonveil #22" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/23.png" alt="Crimsonveil #23" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/23.png" alt="Crimsonveil #23" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/24.png" alt="Crimsonveil #24" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/24.png" alt="Crimsonveil #24" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/25.png" alt="Crimsonveil #25" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/25.png" alt="Crimsonveil #25" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/26.png" alt="Crimsonveil #26" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/26.png" alt="Crimsonveil #26" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/27.png" alt="Crimsonveil #27" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/27.png" alt="Crimsonveil #27" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/28.png" alt="Crimsonveil #28" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/28.png" alt="Crimsonveil #28" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/29.png" alt="Crimsonveil #29" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/29.png" alt="Crimsonveil #29" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/30.png" alt="Crimsonveil #30" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/30.png" alt="Crimsonveil #30" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/31.png" alt="Crimsonveil #31" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/31.png" alt="Crimsonveil #31" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/32.png" alt="Crimsonveil #32" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/32.png" alt="Crimsonveil #32" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/33.png" alt="Crimsonveil #33" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/33.png" alt="Crimsonveil #33" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/34.png" alt="Crimsonveil #34" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/34.png" alt="Crimsonveil #34" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/35.png" alt="Crimsonveil #35" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/35.png" alt="Crimsonveil #35" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/36.png" alt="Crimsonveil #36" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/36.png" alt="Crimsonveil #36" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/37.png" alt="Crimsonveil #37" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/37.png" alt="Crimsonveil #37" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/38.png" alt="Crimsonveil #38" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/38.png" alt="Crimsonveil #38" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/39.png" alt="Crimsonveil #39" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/39.png" alt="Crimsonveil #39" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/40.png" alt="Crimsonveil #40" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/40.png" alt="Crimsonveil #40" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/21.png" alt="Crimsonveil #21" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/21.png" alt="Crimsonveil #21" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/22.png" alt="Crimsonveil #22" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/22.png" alt="Crimsonveil #22" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/23.png" alt="Crimsonveil #23" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/23.png" alt="Crimsonveil #23" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/24.png" alt="Crimsonveil #24" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/24.png" alt="Crimsonveil #24" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/25.png" alt="Crimsonveil #25" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/25.png" alt="Crimsonveil #25" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/26.png" alt="Crimsonveil #26" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/26.png" alt="Crimsonveil #26" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/27.png" alt="Crimsonveil #27" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/27.png" alt="Crimsonveil #27" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/28.png" alt="Crimsonveil #28" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/28.png" alt="Crimsonveil #28" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/29.png" alt="Crimsonveil #29" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/29.png" alt="Crimsonveil #29" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/30.png" alt="Crimsonveil #30" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/30.png" alt="Crimsonveil #30" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/31.png" alt="Crimsonveil #31" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/31.png" alt="Crimsonveil #31" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/32.png" alt="Crimsonveil #32" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/32.png" alt="Crimsonveil #32" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/33.png" alt="Crimsonveil #33" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/33.png" alt="Crimsonveil #33" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/34.png" alt="Crimsonveil #34" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/34.png" alt="Crimsonveil #34" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/35.png" alt="Crimsonveil #35" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/35.png" alt="Crimsonveil #35" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/36.png" alt="Crimsonveil #36" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/36.png" alt="Crimsonveil #36" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/37.png" alt="Crimsonveil #37" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/37.png" alt="Crimsonveil #37" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/38.png" alt="Crimsonveil #38" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/38.png" alt="Crimsonveil #38" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/39.png" alt="Crimsonveil #39" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/39.png" alt="Crimsonveil #39" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
       <div class="gallery-item">
-        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/40.png" alt="Crimsonveil #40" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://ipfs.io/ipfs/QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/40.png" alt="Crimsonveil #40" loading="lazy" onerror="
+  const gw=['https://cloudflare-ipfs.com/ipfs/','https://gateway.pinata.cloud/ipfs/','https://ipfs.io/ipfs/'];
+  const cid='QmZn4ic8GByXKfyyE5RwAxgReuyuS2BoNncx64iBaDCksp/';
+  const n=parseInt(this.dataset.g||0);
+  if(n<gw.length){this.dataset.g=n+1;const p=this.src.split('/').pop();this.src=gw[n]+cid+p;}
+  else{this.parentElement.style.display='none';}">
       </div>
     </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown-section">
+    <div class="countdown-label">✦ Mint Opens In ✦</div>
+    <div class="countdown-boxes" id="countdown-boxes">
+      <div class="countdown-box">
+        <div class="countdown-num" id="cd-hours">00</div>
+        <div class="countdown-unit">Hours</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-box">
+        <div class="countdown-num" id="cd-mins">00</div>
+        <div class="countdown-unit">Minutes</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-box">
+        <div class="countdown-num" id="cd-secs">00</div>
+        <div class="countdown-unit">Seconds</div>
+      </div>
+    </div>
+    <div class="countdown-done" id="countdown-done" style="display:none;">✦ Mint is Now Live! ✦</div>
   </div>
 
   <!-- Stats -->
@@ -2116,10 +2602,9 @@ async function connectWithProvider(walletProvider) {
     const shortAddr = walletAddress.slice(0,6) + '...' + walletAddress.slice(-4);
     document.getElementById('wallet-info').textContent = 'Connected: ' + shortAddr;
     document.getElementById('mint-area').innerHTML = `
-      <div style="text-align:center; padding: 18px; border: 1px solid rgba(192,57,43,0.3); border-radius: 10px; background: rgba(192,57,43,0.05);">
-        <div style="font-family: 'Cinzel Decorative', serif; font-size: 16px; color: #fff; letter-spacing: 0.1em; margin-bottom: 8px;">✦ Mint will Start Soon ✦</div>
-        <div style="font-family: 'Crimson Pro', serif; font-size: 13px; color: #8a6a65; font-style: italic;">Stay tuned for the official launch</div>
-      </div>
+      <button class="mint-btn" id="mint-btn" onclick="mintNFT()">
+        <span class="mint-btn-text">✦ Mint Now ✦</span>
+      </button>
     `;
     hideStatus();
     loadStats();
@@ -2264,6 +2749,32 @@ function showSuccess(tokenId) {
 function closeSuccess() {
   document.getElementById('success-overlay').classList.remove('show');
 }
+
+// Countdown timer — May 25, 2026 5:00 PM BST (UTC+6)
+const mintTime = new Date('2026-05-25T11:00:00Z'); // 5PM BST = 11AM UTC
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = mintTime - now;
+
+  if (diff <= 0) {
+    document.getElementById('countdown-boxes').style.display = 'none';
+    document.getElementById('countdown-done').style.display = 'block';
+    document.querySelector('.countdown-label').style.display = 'none';
+    return;
+  }
+
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-mins').textContent  = String(mins).padStart(2, '0');
+  document.getElementById('cd-secs').textContent  = String(secs).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 // Coming Soon toast
 let toastTimer;
