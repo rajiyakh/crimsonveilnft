@@ -2053,11 +2053,11 @@
   <!-- Stats -->
   <div class="stats">
     <div class="stat">
-      <div class="stat-value" id="stat-minted">0</div>
+      <div class="stat-value" id="stat-minted">...</div>
       <div class="stat-label">Minted</div>
     </div>
     <div class="stat">
-      <div class="stat-value" id="stat-remaining">10,000</div>
+      <div class="stat-value" id="stat-remaining">...</div>
       <div class="stat-label">Remaining</div>
     </div>
     <div class="stat">
@@ -2598,26 +2598,29 @@ function hideStatus() {
 // Load stats — tries Etherscan API first, then multiple RPCs
 async function loadStats() {
 
-  // Method 1: Etherscan API (most reliable)
+  // Method 1: Direct eth_call via public RPC
   try {
-    // Call totalMinted() via Etherscan
-    const mintedRes = await fetch(
-      'https://api.etherscan.io/api?module=proxy&action=eth_call' +
-      '&to=' + CONTRACT_ADDRESS +
-      '&data=0x2c00e04a' + // totalMinted() selector
-      '&tag=latest'
-    );
-    const mintedJson = await mintedRes.json();
-    if (mintedJson.result && mintedJson.result !== '0x') {
-      const mintedNum = parseInt(mintedJson.result, 16);
-      const remaining = 10000 - mintedNum;
-      const pct = ((mintedNum / 10000) * 100).toFixed(1);
-      updateStats(mintedNum, remaining, pct);
-      console.log('Stats via Etherscan API | Minted:', mintedNum);
-      return;
+    const res = await fetch('https://eth.llamarpc.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        jsonrpc: '2.0', id: 1, method: 'eth_call',
+        params: [{ to: CONTRACT_ADDRESS, data: '0x2db11544' }, 'latest']
+      })
+    });
+    const json = await res.json();
+    if (json.result && json.result !== '0x' && json.result !== '0x0000000000000000000000000000000000000000000000000000000000000000') {
+      const mintedNum = parseInt(json.result, 16);
+      if (!isNaN(mintedNum)) {
+        const remaining = 10000 - mintedNum;
+        const pct = ((mintedNum / 10000) * 100).toFixed(1);
+        updateStats(mintedNum, remaining, pct);
+        console.log('Stats via eth_call | Minted:', mintedNum);
+        return;
+      }
     }
   } catch(e) {
-    console.log('Etherscan API failed:', e.message);
+    console.log('eth_call failed:', e.message);
   }
 
   // Method 2: Multiple RPC fallbacks
@@ -2652,11 +2655,17 @@ async function loadStats() {
 }
 
 function updateStats(minted, remaining, pct) {
-  document.getElementById('stat-minted').textContent = minted.toLocaleString();
-  document.getElementById('stat-remaining').textContent = remaining.toLocaleString();
-  document.getElementById('progress-pct').textContent = pct + '%';
+  const mintedEl = document.getElementById('stat-minted');
+  const remainingEl = document.getElementById('stat-remaining');
+  const pctEl = document.getElementById('progress-pct');
+  
+  if (isNaN(minted) || minted === undefined) return;
+  
+  mintedEl.textContent = Number(minted).toLocaleString();
+  remainingEl.textContent = Number(remaining).toLocaleString();
+  pctEl.textContent = parseFloat(pct).toFixed(1) + '%';
   setTimeout(() => {
-    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-fill').style.width = parseFloat(pct).toFixed(1) + '%';
   }, 500);
 }
 
