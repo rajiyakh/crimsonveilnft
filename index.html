@@ -2826,7 +2826,7 @@ async function mintNFT() {
   } catch(e) {
     let msg = 'Transaction failed.';
     if (e.reason) msg = e.reason;
-    else if (e.message && e.message.includes('Wallet limit')) msg = 'Wallet limit reached (max 5 per wallet).';
+    else if (e.message && e.message.includes('Wallet limit')) msg = 'You have reached the maximum of 5 NFTs per wallet.';
     else if (e.message && e.message.includes('Minting paused')) msg = 'Minting is currently paused.';
     else if (e.message && e.message.includes('insufficient funds')) msg = 'Insufficient ETH balance.';
     showStatus(msg, 'error');
